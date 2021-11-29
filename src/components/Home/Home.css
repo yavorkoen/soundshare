@@ -1,0 +1,51 @@
+
+.cards-container {
+    /* background-color: darkolivegreen; */
+    /* display: flex; */
+   
+}
+
+.welcome-page {
+    position: relative;
+    height: 100%;
+    width: 100%;
+}
+.cards-container ul {
+    display: flex;
+    
+}
+/* .bcgr {
+    width: 100%;
+    height: 100%;
+    background-color: rgba(252, 252, 252, 0.);
+    position:absolute; 
+} */
+.parallax{
+    
+    /* display: flex;
+    align-items: center; 
+    justify-content: center; */
+
+    background-image: url("../../img/Rev2_in_studio.jpg");
+    opacity: 0.6;
+    filter: blur(2px); 
+    min-height: 500px;
+
+    background-attachment: scroll;
+    background-position: center;
+    background-repeat: no-repeat;
+    background-size: cover;
+
+    position:relative;
+}
+
+.headings {
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translateX(-50%) translateY(-50%);
+    z-index: 1;
+}
+.heading{
+    color: white;
+}

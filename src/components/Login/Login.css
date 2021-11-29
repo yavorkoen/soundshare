@@ -1,0 +1,80 @@
+.login-container {
+   
+    position: relative;
+    height: 100%;
+    width: 100%;
+}
+.login-register-bcgr {
+    
+    /* position: absolute; */
+    /* top: 0;
+    left: 0;
+    right: 0;
+    bottom: 0;
+    z-index: -1; */
+    background-image: url("../../img/Rev2_in_studio.jpg");
+    background-attachment: scroll;
+    background-position: center;
+    background-repeat: no-repeat;
+    background-size: cover;
+    width: 100vw;
+    min-height: 500px;
+    opacity: 0.5;
+    filter: blur(6px);
+}
+
+.login {
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translateX(-50%) translateY(-50%);
+    /* margin: auto; */
+    width: 480px;
+    background-color: rgb(255, 255, 255);
+    box-sizing: border-box;
+    padding: 34px;
+    padding-bottom: 22px;
+    border-radius: 4px;
+    
+}
+
+form {
+    outline: none;
+    
+}
+fieldset {
+    border: none;
+}
+legend {
+    font-size: 24px;
+    margin: auto;
+}
+.input {
+    position: relative;
+    border-bottom: 1px solid #EDEDED;
+    padding-right: 4px;
+}
+
+input {
+    width: 100%;
+    padding: 12px 0px 12px 4px;
+    border: 0;
+}
+.input input:focus {
+    outline-style: solid;
+    outline-width: 2px;
+    outline-color: #727070;
+    border-radius: 2px;
+    background-color: #f2f1f1;
+}
+
+.submit {
+    background-color: rgb(63, 62, 62);
+    margin-top: 8px;
+    padding: 14px;
+    border-radius: 2px;
+    color: white;
+    font-weight: bold;
+}
+
+

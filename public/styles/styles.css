@@ -1,0 +1,26 @@
+@import "./reset.css";
+@import "./typography.css";
+
+body {
+    background-color: rgb(34, 34, 33);
+}
+
+.login-register-bcgr {
+    
+    /* position: absolute; */
+    /* top: 0;
+    left: 0;
+    right: 0;
+    bottom: 0;
+    z-index: -1; */
+    background-image: url("../../img/Rev2_in_studio.jpg");
+    background-attachment: scroll;
+    background-position: center;
+    background-repeat: no-repeat;
+    background-size: cover;
+    width: 100vw;
+    min-height: 500px;
+    opacity: 0.5;
+    filter: blur(6px);
+
+}

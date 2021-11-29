@@ -1,0 +1,57 @@
+
+.card {
+    
+    background-color: white;
+    border-radius: 3px;
+    max-width: 20rem;
+    overflow: hidden;
+    box-shadow: 3px 0 1rem 0 rgba(255, 255, 255, 0.2);
+    margin: 2rem;
+    float:left;
+}
+.card .media{
+    position: relative;
+    overflow: hidden;
+    
+
+}
+.card .media:after{
+    display: block;
+    content: '';
+    padding-top: 56.25%;
+    
+
+}
+
+.card .content{
+    padding: 2rem;
+    overflow: hidden;
+}
+.card .media img{
+    display: block;
+    position: absolute;
+    left: 0; right: 0;
+    width: 100%;
+    height: auto;
+}
+.card .media iframe{
+    display: block;
+    position: absolute;
+    left: 0; right: 0; bottom: 0; top: 0;
+    border: none;  
+}
+.content .heading{
+    font-size: 1.2rem;
+    font-weight: 700;
+    margin: 0 0 0.4rem 0;
+}
+.button{
+    display:block;
+    text-decoration: none;
+    background-color: rgb(0, 153, 0);
+    color: white;
+    border-radius: 3px;
+    padding: 0.5rem 1rem;
+    float: right;
+    
+}
