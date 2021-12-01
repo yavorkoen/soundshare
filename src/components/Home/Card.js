@@ -2,7 +2,7 @@
 import './Card.css';
 
 const Card = ({card}) => {
-    console.log(card.imageUrl);
+    // console.log(card.imageUrl);
     return (
         <section className="card">
             <div className="media">

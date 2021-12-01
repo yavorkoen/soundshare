@@ -1,6 +1,6 @@
 import { useState, useEffect } from 'react';
 import Card from './Card.js';
-import * as crudService from '../../service/crudService.js';
+import * as crudService from '../../services/crudService.js';
 import './Home.css';
 
 const Home = () => {
