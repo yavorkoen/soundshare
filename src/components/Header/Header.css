@@ -91,3 +91,7 @@ nav.main li:hover > a, nav.main a:hover{
         display: none;
     }
 }
+.welcome {
+    color:  #FFF;
+    padding: 0.5rem 1rem;
+}

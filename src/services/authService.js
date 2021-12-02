@@ -1,17 +1,38 @@
 const baseUrl = "http://localhost:3030/users"
 
-export const register = (data) => {
+export const register = async (data) => {
 
-    return fetch(baseUrl + '/register', {
+    let res = await fetch(baseUrl + '/register', {
         method: "POST",
         headers: {
-            "Content-Type": "application/json" 
+            'content-type': 'application/json'
         },
         body: JSON.stringify(data)
     })
-        .then(res => res.json())
+
+    let jsonResult = await res.json();
+    if (res.ok) {
+        return jsonResult;
+    } else {
+        throw jsonResult;
+    }
 }
 
-export const login = (data) => {
-    
+export const login = async (data) => {
+
+    let res = await fetch(baseUrl + '/login', {
+        method: "POST",
+        headers: {
+            'content-type': 'application/json'
+        },
+        body: JSON.stringify(data)
+    })
+
+    let jsonResult = await res.json();
+    if (res.ok) {
+        return jsonResult;
+    } else {
+        throw jsonResult;
+    }
 }
+

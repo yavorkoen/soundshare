@@ -1,15 +1,13 @@
 import { useState } from 'react';
+import { useNavigate } from 'react-router-dom';
 import './Register.css';
 import * as authService from '../../services/authService.js';
 
 const Register = () => {
+    const [isError, setIsError] = useState('');
+    const navigate = useNavigate();
 
-    const [isValidEmail, setIsValidEmail] = useState(true);
-    const [isValidPassword, setIsValidPassword] = useState(true);
-    const [isMatchPassword, setIsMatchPassword] = useState(true);
-
-
-    const registerSubmitHandler = (e) => {
+    const onRegisterHandler = (e) => {
         e.preventDefault();
         let formData = new FormData(e.currentTarget);
 
@@ -19,33 +17,33 @@ const Register = () => {
 
 
         if (!(/^\w+([.-]?\w+)*@\w+([.-]?\w+)*(\.\w{2,3})+$/.test(email)) || email === '') {
-            setIsValidEmail(false);
+            setIsError('Please enter a valid email address');
+            return;
         } else {
-            setIsValidEmail(true);
+            setIsError('');
         }
-        if (password === '') {
-            setIsValidPassword(false);
+        if (password === '' || password !== repass) {
+            setIsError('Password doesn\'t match');
+            return;
         } else {
-            setIsValidPassword(true);
+            setIsError(true);
         }
-        if (password !== repass) {
-            setIsMatchPassword(false);
-        } else {
-            setIsMatchPassword(true);
 
-        }
-        let info = {
+        let data = {
             email,
             password
         }
-        authService.register(info)
+        authService.register(data)
             .then(res => {
                 console.log(res)
-                let userData = localStorage.setItem('user', JSON.stringify(res));
-                let user = JSON.parse(userData)
-                console.log(user);
+                // let userData = localStorage.setItem('user', JSON.stringify(res));
+                // let user = JSON.parse(userData)
+                // console.log(user);
+                navigate('/');
+
             })
             .catch(err => {
+                setIsError(err.message)
                 console.log(err)
             });
 
@@ -56,26 +54,24 @@ const Register = () => {
         <div className="register-container">
             <div className="login-register-bcgr"></div>
             <section className="register">
-                <form method="post" onSubmit={registerSubmitHandler}>
+                <form method="post" onSubmit={onRegisterHandler}>
                     <fieldset>
                         <legend>Register</legend>
                         <div className="field">
                             <div className="input">
-                                <input type="text" name="email" id="email" placeholder="Email" />
-                                <div className={isValidEmail ? "valid-email" : "invalid-email"}>Please enter a valid email address</div>
+                                <input type="text" name="email" id="email" placeholder="Email" />                              {/* <div className={isValidEmail ? "valid-email" : "invalid-email"}>Please enter a valid email address</div> */}
                             </div>
                         </div>
                         <div className="field">
                             <div className="input">
                                 <input type="password" name="password" id="password" placeholder="Password" />
-                                <div className={isValidPassword ? "valid-password" : "invalid-password"}>Please enter a password</div>
                             </div>
                         </div>
                         <div className="field">
                             <div className="input">
                                 <input type="password" name="repass" id="repass" placeholder="Confirm Password" />
-                                <div className={isMatchPassword ? "valid-password" : "invalid-password"}>Password doesn't match</div>
                             </div>
+                            <div className="error-message" style={!isError ? { display: 'none' } : null}>{isError}</div>
                         </div>
                         <input type="submit" className="submit" value="Register" />
                     </fieldset>
