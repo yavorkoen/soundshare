@@ -1,18 +1,8 @@
-import { useState, useEffect } from 'react';
-import Card from './Card.js';
-import * as crudService from '../../services/crudService.js';
+import { Routes, Route, Link } from 'react-router-dom';
+import SoundList from '../SoundList/SoundList.js';
 import './Home.css';
 
 const Home = () => {
-
-    const [cards, setCards] = useState([]);
-
-    useEffect(() => {
-        let data = crudService.getAll()
-        data.then(data => {
-            setCards(Object.values(data))
-        })
-    }, []);
 
     return (
         <div className="cards-container">
@@ -23,9 +13,9 @@ const Home = () => {
                 </div>
                 <div className="parallax"></div>
             </div>
-            <ul>
-                {cards.map(card => <Card key={card._id} card={card} />)}
-            </ul>
+            <Routes>
+                <Route path="/" element={<SoundList />} />
+            </Routes>
         </div>
     );
 }

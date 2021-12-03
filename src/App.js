@@ -5,6 +5,8 @@ import Header from './components/Header/Header.js';
 import Home from './components/Home/Home.js';
 import Login from './components/Login/Login.js';
 import Register from './components/Register/Register.js';
+import Create from './components/Create/Create.js';
+import MySounds from './components/MySounds/MySounds.js';
 
 
 function App() {
@@ -14,7 +16,7 @@ function App() {
 
   })
 
-  const onLogin = (authData) => {
+  const login = (authData) => {
     setUser(authData);
   }
   const onLogout = () => {
@@ -22,15 +24,19 @@ function App() {
   }
   console.log(user);
   return (
-    <AuthContext.Provider value={{user, onLogout, onLogin}}>
-      <main id="site-content">
-        <Header user={user}/>
-        <Routes>
-          <Route path='/' element={<Home />} />
-          <Route path='/login' element={<Login />} />
-          <Route path='/register' element={<Register />} />
-        </Routes>
-      </main>
+    <AuthContext.Provider value={{ user, onLogout, login }}>
+      <div id="container">
+        <Header />
+        <main id="site-content">
+          <Routes>
+            <Route path='/' element={<Home />} />
+            <Route path='/login' element={<Login />} />
+            <Route path='/register' element={<Register />} />
+            <Route path='/my-sounds' element={<MySounds />} />
+            <Route path='/create' element={<Create />} />
+          </Routes>
+        </main>
+      </div>
     </AuthContext.Provider>
   );
 }

@@ -1,7 +1,7 @@
 
 .card {
     
-    background-color: white;
+    background-color: rgb(247, 247, 247);
     border-radius: 3px;
     max-width: 20rem;
     overflow: hidden;
@@ -9,13 +9,13 @@
     margin: 2rem;
     float:left;
 }
-.card .media{
+.card .media {
     position: relative;
     overflow: hidden;
     
 
 }
-.card .media:after{
+.card .media:after {
     display: block;
     content: '';
     padding-top: 56.25%;
@@ -23,35 +23,60 @@
 
 }
 
-.card .content{
+.card .content {
     padding: 2rem;
     overflow: hidden;
 }
-.card .media img{
+.card .media img {
     display: block;
     position: absolute;
     left: 0; right: 0;
     width: 100%;
     height: auto;
 }
-.card .media iframe{
+.card .media iframe {
     display: block;
     position: absolute;
     left: 0; right: 0; bottom: 0; top: 0;
     border: none;  
 }
-.content .heading{
+.content .heading {
     font-size: 1.2rem;
     font-weight: 700;
     margin: 0 0 0.4rem 0;
 }
-.button{
+.button {
     display:block;
     text-decoration: none;
     background-color: rgb(0, 153, 0);
     color: white;
     border-radius: 3px;
     padding: 0.5rem 1rem;
-    float: right;
+    float: right;  
+}
+
+.delete {
+    background-color: rgb(249, 52, 38);
+}
+
+.controls-container {
+    display: flex;
+    flex-wrap: wrap;
+}
+.like-button {
+    border: none;
+    outline: none;
+    margin: 5px;
+    background-color: rgb(247, 247, 247);;
     
 }
+.like-button i {
+    color: rgb(39, 39, 244);
+    font-size: 1.5rem;
+}
+.like-button i:hover{
+    font-size: 1.7rem;
+
+}
+
+

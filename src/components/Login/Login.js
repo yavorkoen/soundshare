@@ -6,9 +6,11 @@ import { useNavigate } from 'react-router';
 import * as authService from '../../services/authService.js';
 
 const Login = () => {
+
     const navigate = useNavigate();
     const [isError, setIsError] = useState('');
-    const { onLogin } = useContext(AuthContext)
+    const { login } = useContext(AuthContext);
+
     const onLoginHandler = (e) => {
         e.preventDefault();
 
@@ -23,7 +25,7 @@ const Login = () => {
         }
         authService.login(data)
             .then(res => {
-                onLogin(res);
+                login(res);
                 navigate('/');
             })
             .catch(err => {
