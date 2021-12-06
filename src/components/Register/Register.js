@@ -1,9 +1,11 @@
-import { useState } from 'react';
-import { useNavigate } from 'react-router-dom';
+import { useState, useContext } from 'react';
+import { useNavigate  } from 'react-router-dom';
 import './Register.css';
+import { AuthContext } from '../../contexts/AuthContext.js';
 import * as authService from '../../services/authService.js';
 
 const Register = () => {
+    const { login } = useContext(AuthContext);
     const [isError, setIsError] = useState('');
     const navigate = useNavigate();
 
@@ -36,9 +38,7 @@ const Register = () => {
         authService.register(data)
             .then(res => {
                 console.log(res)
-                // let userData = localStorage.setItem('user', JSON.stringify(res));
-                // let user = JSON.parse(userData)
-                // console.log(user);
+                login(res);
                 navigate('/');
 
             })

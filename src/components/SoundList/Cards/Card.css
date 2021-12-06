@@ -64,19 +64,20 @@
     flex-wrap: wrap;
 }
 .like-button {
-    border: none;
-    outline: none;
+    /* border: none; */
+    /* outline: none; */
     margin: 5px;
     background-color: rgb(247, 247, 247);;
     
 }
 .like-button i {
     color: rgb(39, 39, 244);
-    font-size: 1.5rem;
+    font-size: 1.3rem;
 }
-.like-button i:hover{
-    font-size: 1.7rem;
-
+.likes i {
+    color:  rgb(29, 29, 220);
 }
-
+.likes p {
+    color: rgb(84, 83, 83)
+}
 

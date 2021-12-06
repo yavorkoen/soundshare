@@ -6,12 +6,14 @@ const SoundList = () => {
     const [cards, setCards] = useState([]);
 
     useEffect(() => {
-        let data = crudService.getAll()
+        let data = crudService.get('/sounds')
         data.then(data => {
             setCards(Object.values(data))
+            
         });
     }, []);
     
+    console.log(cards);
     return (
         cards.length > 0
         ? (

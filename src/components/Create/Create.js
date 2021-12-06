@@ -1,12 +1,13 @@
-import './Create.css';
 import { useContext } from 'react';
 import { useNavigate } from 'react-router-dom';
 import { AuthContext } from '../../contexts/AuthContext.js';
 import * as crudService from '../../services/crudService.js';
+import CreateToggleCategory from './CreateToggleCategory.js';
+import './Create.css';
 
 const Create = () => {
     let navigate = useNavigate();
-    let { user } = useContext(AuthContext);
+    let { user, categories, onChangeCategory } = useContext(AuthContext);
     console.log(user.accessToken);
 
     const onCreateHandler = (e) => {
@@ -14,12 +15,18 @@ const Create = () => {
 
         let formData = new FormData(e.currentTarget);
 
-        const obj = Object.fromEntries(formData);
-        console.log(obj);
+        let category = formData.get("category");
+        console.log(category);
 
+        if (!categories.includes(category)) {
+            onChangeCategory(category)
+        }
+        console.log(categories);
 
+        const data = Object.fromEntries(formData);
+        console.log(data);
 
-        crudService.create(user.accessToken, obj)
+        crudService.create(user.accessToken, data)
             .then(res => {
                 console.log(res);
                 navigate('/my-sounds');
@@ -58,16 +65,7 @@ const Create = () => {
                                 <input type="text" name="soundUrl" id="soundUrl" placeholder="URL" />
                             </div>
                         </div>
-                        <div className="field">
-                            <label htmlFor="category">Category</label>
-                            <div className="input">
-                                <select id="category" name="category">
-                                    <option value="Prophet rev2">Prophet rev2</option>
-                                    <option value="Korg microkorg">Korg microkorg</option>
-                                    <option value="Arturia">Arturia</option>
-                                </select>
-                            </div>
-                        </div>
+                        <CreateToggleCategory />
                         <input className="button submit" type="submit" value="Add Sound" />
                     </fieldset>
                 </form>

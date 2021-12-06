@@ -1,21 +1,24 @@
-import './Header.css';
+
 import { useContext } from 'react';
 import { AuthContext } from '../../contexts/AuthContext.js';
+import './Header.css';
 import { Link } from 'react-router-dom';
 
+
 const Header = () => {
+
     const { onLogout, user } = useContext(AuthContext);
 
     const guestNav = (
         <ul>
             <li><Link to="/">Home</Link></li>
             <li>
-                <a href="catalogue">Catalogue</a>
+                <Link to="/catalog">Catalogue</Link>
                 <ul>
-                    <li><a href="">Show all</a></li>
+                    {/* <li><Link to="/catalog">Show all</Link></li> */}
                     <li><a href="#">Categories</a>
                         <ul>
-                            <li><a href="#">Prophet rev2</a></li>
+                            <li><Link to="catalog/prophet-rev2">Prophet rev2</Link></li>
                             <li><a href="#">Korg microkorg</a></li>
                             <li><a href="#">Arturia</a></li>
                         </ul>
@@ -33,9 +36,9 @@ const Header = () => {
             <li><Link to="/">Home</Link></li>
             <li><Link to="my-sounds">My Sounds</Link></li>
             <li>
-                <a href="catalogue">Catalogue</a>
+                <Link to="catalog">Catalogue</Link>
                 <ul>
-                    <li><a href="">Show all</a></li>
+                    {/* <li><Link to="/catalog">Show all</Link></li> */}
                     <li><a href="#">Categories</a>
                         <ul>
                             <li><a href="#">Prophet rev2</a></li>
