@@ -40,7 +40,7 @@ export const create = async (token, data) => {
             'content-type': 'application/json',
             'X-Authorization': token
         },
-        body: JSON.stringify({...data, likes:[]})
+        body: JSON.stringify({ ...data, likes: [] })
     })
     let jsonResult = await res.json();
     if (res.ok) {
@@ -61,32 +61,32 @@ export const remove = async (token, cardId) => {
     return response;
 }
 
-export const getLikes = async () => {
-    let res = await fetch(baseUrl + '/likes')
-    let jsonResult = await res.json();
-    if (res.ok) {
-        return jsonResult;
-    } else {
-        throw jsonResult;
-    }
-}
+// export const getLikes = async () => {
+//     let res = await fetch(baseUrl + '/likes')
+//     let jsonResult = await res.json();
+//     if (res.ok) {
+//         return jsonResult;
+//     } else {
+//         throw jsonResult;
+//     }
+// }
 
-export const addLike = async (token, cardId, data) => {
-    let res = await fetch(baseUrl + '/sounds/' + cardId , {
-        method: 'PATCH',
-        headers: {
-            'content-type': 'application/json',
-            'X-Authorization': token
-        },
-        body: JSON.stringify(data)
-    })
-    let jsonResult = await res.json();
-    if (res.ok) {
-        return jsonResult;
-    } else {
-        throw jsonResult;
-    }
-}
+// export const addLike = async (token, cardId, data) => {
+//     let res = await fetch(baseUrl + '/sounds/' + cardId, {
+//         method: 'PATCH',
+//         headers: {
+//             'content-type': 'application/json',
+//             'X-Authorization': token
+//         },
+//         body: JSON.stringify(data)
+//     })
+//     let jsonResult = await res.json();
+//     if (res.ok) {
+//         return jsonResult;
+//     } else {
+//         throw jsonResult;
+//     }
+// }
 
 
 export const get = async (path) => {
@@ -99,14 +99,31 @@ export const get = async (path) => {
     }
 }
 
-export const post = async (path ,token, data) => {
+export const post = async (path, token, data) => {
     let res = await fetch(baseUrl + path, {
         method: 'POST',
         headers: {
             'content-type': 'application/json',
             'X-Authorization': token
         },
-        body: JSON.stringify({...data, likes:[]})
+        body: JSON.stringify({ ...data })
+    })
+    let jsonResult = await res.json();
+    if (res.ok) {
+        return jsonResult;
+    } else {
+        throw jsonResult;
+    }
+}
+
+export const update = async (path, token, data) => {
+    let res = await fetch(baseUrl + path, {
+        method: 'PUT',
+        headers: {
+            'content-type': 'application/json',
+            'X-Authorization': token
+        },
+        body: JSON.stringify({...data})
     })
     let jsonResult = await res.json();
     if (res.ok) {

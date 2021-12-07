@@ -11,7 +11,7 @@ const Details = () => {
     const [card, setCard] = useState({});
     const [likes, setLikes] = useState(0);
     const { cardId } = useParams();
-
+    console.log(useParams());
     const path = `/sounds/${cardId}`;
 
     useEffect(() => {
@@ -30,7 +30,6 @@ const Details = () => {
     }
 
     const onLikeHandler = () => {
-        // crudService.post(`/likes`, user.accessToken, {cardId: cardId})
         crudService.get(`/likes`)
         .then(res => {
             let currentCardLikes = res.filter(x => x.cardId === cardId)
@@ -50,7 +49,7 @@ const Details = () => {
     const ownerView = (
         <div className="controls-container">
             <ul className="controls">
-                <li><Link className="button edit" to="/edit">Edit</Link></li>
+                <li><Link className="button edit" to={'/edit/' + cardId}>Edit</Link></li>
                 <li><button className="button delete" href="#" onClick={deleteHandler}>Delete</button></li>
             </ul>
         </div>

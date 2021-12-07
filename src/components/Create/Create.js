@@ -1,14 +1,16 @@
 import { useContext } from 'react';
 import { useNavigate } from 'react-router-dom';
+import { CategoryContext } from '../../contexts/CategoryContext.js';
 import { AuthContext } from '../../contexts/AuthContext.js';
 import * as crudService from '../../services/crudService.js';
 import CreateToggleCategory from './CreateToggleCategory.js';
+import cardImages from '../../img/cardImages.js';
 import './Create.css';
 
 const Create = () => {
     let navigate = useNavigate();
-    let { user, categories, onChangeCategory } = useContext(AuthContext);
-    console.log(user.accessToken);
+    let { user } = useContext(AuthContext);
+    let { categories, onChangeCategory } = useContext(CategoryContext);
 
     const onCreateHandler = (e) => {
         e.preventDefault();
@@ -16,17 +18,19 @@ const Create = () => {
         let formData = new FormData(e.currentTarget);
 
         let category = formData.get("category");
+        let categoryImage = formData.get("categoryImage");
         console.log(category);
 
         if (!categories.includes(category)) {
             onChangeCategory(category)
+            cardImages[category] = categoryImage;
         }
         console.log(categories);
 
         const data = Object.fromEntries(formData);
         console.log(data);
 
-        crudService.create(user.accessToken, data)
+        crudService.post('/sounds' ,user.accessToken, data)
             .then(res => {
                 console.log(res);
                 navigate('/my-sounds');

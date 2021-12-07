@@ -6,12 +6,6 @@
 }
 .create-bcgr {
     
-    /* position: absolute; */
-    /* top: 0;
-    left: 0;
-    right: 0;
-    bottom: 0;
-    z-index: -1; */
     background-image: url("../../img/rev2.jpg");
     background-attachment: scroll;
     background-position: center;
@@ -51,7 +45,6 @@ legend {
 }
 .input {
     position: relative;
-    /* border: 1px solid #EDEDED; */
     padding-right: 4px;
 }
 .field {
@@ -61,7 +54,6 @@ legend {
 input, select {
     width: 100%;
     padding: 12px 0px 12px 4px;
-    /* border: 0; */
 }
 input:focus, textarea:focus {
     outline-style: solid;
@@ -88,4 +80,10 @@ select:focus {
 }
 textarea {
     padding: 4px;
+}
+
+#category-toggle {
+    display: block;
+    margin-right: 35%;
+    margin-top: 10px;
 }

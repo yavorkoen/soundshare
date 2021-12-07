@@ -15,14 +15,14 @@ const Header = () => {
             <li>
                 <Link to="/catalog">Catalogue</Link>
                 <ul>
-                    {/* <li><Link to="/catalog">Show all</Link></li> */}
-                    <li><a href="#">Categories</a>
+                    <li><Link to="/catalog/categories">Show by categories</Link></li>
+                    {/* <li><a href="#">Categories</a>
                         <ul>
                             <li><Link to="catalog/prophet-rev2">Prophet rev2</Link></li>
                             <li><a href="#">Korg microkorg</a></li>
                             <li><a href="#">Arturia</a></li>
                         </ul>
-                    </li>
+                    </li> */}
                 </ul>
             </li>
             <li><Link to="/login">Login</Link></li>
@@ -38,14 +38,14 @@ const Header = () => {
             <li>
                 <Link to="catalog">Catalogue</Link>
                 <ul>
-                    {/* <li><Link to="/catalog">Show all</Link></li> */}
-                    <li><a href="#">Categories</a>
+                    <li><Link to="/catalog/categories">Show by categories</Link></li>
+                    {/* <li><a href="#">Categories</a>
                         <ul>
                             <li><a href="#">Prophet rev2</a></li>
                             <li><a href="#">Korg microkorg</a></li>
                             <li><a href="#">Arturia</a></li>
                         </ul>
-                    </li>
+                    </li> */}
                 </ul>
             </li>
             <li><Link to="/" onClick={onLogout}>Logout</Link></li>

@@ -3,6 +3,7 @@ import './Card.css';
 import cardImages from '../../../img/cardImages.js';
 
 const Card = ({ card }) => {
+    console.log(cardImages);
     return (
         <li>
             <section className="card">

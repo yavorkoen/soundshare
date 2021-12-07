@@ -1,11 +1,11 @@
 import { useContext, useState } from 'react';
-import { AuthContext } from '../../contexts/AuthContext.js';
+import { CategoryContext } from '../../contexts/CategoryContext.js';
 
 
 const CreateToggleCategory = () => {
 
     const [newCategory, setNewCategory] = useState(false);
-    let { categories } = useContext(AuthContext);
+    let { categories } = useContext(CategoryContext);
     
     
     const categoryToggleHandler = (e) => {

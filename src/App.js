@@ -1,6 +1,7 @@
 import { useState } from 'react';
 import { Routes, Route } from 'react-router-dom';
 import { AuthContext } from './contexts/AuthContext.js'
+import { CategoryContext } from './contexts/CategoryContext.js';
 import Header from './components/Header/Header.js';
 import Home from './components/Home/Home.js';
 import Login from './components/Login/Login.js';
@@ -9,6 +10,7 @@ import Create from './components/Create/Create.js';
 import MySounds from './components/MySounds/MySounds.js';
 import Details from './components/Details/Details.js';
 import Catalog from './components/Catalog/Catalog.js';
+import Edit from './components/Edit/Edit.js';
 
 
 function App() {
@@ -33,7 +35,8 @@ function App() {
   }
   console.log(user);
   return (
-    <AuthContext.Provider value={{ user, onLogout, login, categories, onChangeCategory }}>
+    <AuthContext.Provider value={{ user, onLogout, login }}>
+      <CategoryContext.Provider value={{categories, onChangeCategory }}>
       <div id="container">
         <Header />
         <main id="site-content">
@@ -45,9 +48,11 @@ function App() {
             <Route path='/create' element={<Create />} />
             <Route path='/details/:cardId' element={<Details />} />
             <Route path='/catalog/*' element={<Catalog />} />
+            <Route path='/edit/:cardId' element={<Edit />} />
           </Routes>
         </main>
       </div>
+      </CategoryContext.Provider>
     </AuthContext.Provider>
   );
 }
