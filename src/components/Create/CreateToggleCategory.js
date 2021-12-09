@@ -18,7 +18,7 @@ const CreateToggleCategory = () => {
     }
     
     const existingCategoryView = (
-        <div className="categories">
+        <div className="new-categories">
             <div className="field">
                 <label htmlFor="category">Select category</label>
                 <div className="input">
@@ -32,7 +32,7 @@ const CreateToggleCategory = () => {
     )
     
     const newCategoryView = (
-        <div className="categories">
+        <div className="new-categories">
             <div className="field">
                 <div className="field">
                     <label htmlFor="newCategory">Name your category</label>

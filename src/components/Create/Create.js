@@ -67,7 +67,7 @@ const Create = () => {
                             </div>
                         </div>
                         <div className="field">
-                            <label htmlFor="soundUrl">Copy Soundcloud or Youtube link</label>
+                            <label htmlFor="soundUrl">Embed Your Youtube Video</label>
                             <div className="input">
                                 <input type="text" name="soundUrl" id="soundUrl" placeholder="URL" />
                             </div>

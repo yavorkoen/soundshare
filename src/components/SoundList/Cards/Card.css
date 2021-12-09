@@ -9,6 +9,16 @@
     margin: 2rem;
     float:left;
 }
+.card-details{
+     
+    background-color: rgb(247, 247, 247);
+    border-radius: 3px;
+    width: 560px;
+    overflow: hidden;
+    box-shadow: 3px 0 1rem 0 rgba(255, 255, 255, 0.2);
+    margin: 2rem;
+    float:left;
+}
 .card .media {
     position: relative;
     overflow: hidden;
@@ -56,13 +66,18 @@
     float: right;  
 }
 
+
 .delete {
     background-color: rgb(249, 52, 38);
+    padding: 0.8rem 1rem;
+    border: none;
 }
 
-.controls-container {
+.controls {
     display: flex;
-    flex-wrap: wrap;
+    justify-content: space-evenly;
+    list-style-type: none;
+    margin-bottom: 10px;
 }
 .like-button {
     /* border: none; */
@@ -80,5 +95,12 @@
 }
 .likes p {
     color: rgb(84, 83, 83)
+}
+
+.card-details span {
+    font-style: italic;
+}
+.card-details .title {
+    text-align: center;
 }
 

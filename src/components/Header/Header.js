@@ -7,7 +7,7 @@ import { Link } from 'react-router-dom';
 
 const Header = () => {
 
-    const { onLogout, user } = useContext(AuthContext);
+    const { user } = useContext(AuthContext);
 
     const guestNav = (
         <ul>
@@ -57,7 +57,7 @@ const Header = () => {
             <Link className="site-title" to='/'><h1 className="site-title"><i className="fas fa-record-vinyl"></i> share your sounds</h1></Link>
             <label id="toggle" htmlFor="main-nav-toggle">Menu</label>
             <nav className="main">
-                {user.email
+                {user.accessToken
                     ? userNav
                     : guestNav
                 }

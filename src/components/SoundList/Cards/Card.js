@@ -16,8 +16,7 @@ const Card = ({ card }) => {
                     <p>Category: {card.category}</p>
                     <h3 className="heading">{card.creator}</h3>
                     <p>{card.description}</p>
-                    <a target="_parent" className="button listen" href="">Listen</a>
-                    {/* <iframe width="100%" height="100" src="https://www.youtube.com/embed/66vSm53-0b8" title="YouTube video player" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe> */}
+                    
                 </div>
                 <div>
                     <Link className="button" to={"/details/" + card._id}>Details</Link>

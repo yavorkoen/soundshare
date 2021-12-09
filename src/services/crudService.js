@@ -50,8 +50,8 @@ export const create = async (token, data) => {
     }
 }
 
-export const remove = async (token, cardId) => {
-    let res = await fetch(baseUrl + '/sounds/' + cardId, {
+export const remove = async (path ,token) => {
+    let res = await fetch(baseUrl + path, {
         method: 'DELETE',
         headers: {
             'X-Authorization': token
