@@ -1,4 +1,4 @@
-
+// import { requester } from './requester.js';
 const baseUrl = 'http://localhost:3030/data'
 
 export const getAll = async () => {

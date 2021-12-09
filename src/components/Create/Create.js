@@ -1,4 +1,4 @@
-import { useContext } from 'react';
+import { useContext, useState } from 'react';
 import { useNavigate } from 'react-router-dom';
 import { CategoryContext } from '../../contexts/CategoryContext.js';
 import { AuthContext } from '../../contexts/AuthContext.js';
@@ -8,9 +8,10 @@ import cardImages from '../../img/cardImages.js';
 import './Create.css';
 
 const Create = () => {
-    let navigate = useNavigate();
-    let { user } = useContext(AuthContext);
-    let { categories, onChangeCategory } = useContext(CategoryContext);
+    const navigate = useNavigate();
+    const { user } = useContext(AuthContext);
+    const { categories, onChangeCategory } = useContext(CategoryContext);
+    const [isError, setIsError] = useState(false);
 
     const onCreateHandler = (e) => {
         e.preventDefault();
@@ -25,14 +26,16 @@ const Create = () => {
             onChangeCategory(category)
             cardImages[category] = categoryImage;
         }
-        console.log(categories);
 
         const data = Object.fromEntries(formData);
-        console.log(data);
+ 
+            if(Object.values(data).some(x => x === '')) {
+                setIsError(true);
+                return;
+            }
 
         crudService.post('/sounds' ,user.accessToken, data)
             .then(res => {
-                console.log(res);
                 navigate('/my-sounds');
             })
             .catch(err => console.log(err));
@@ -70,6 +73,7 @@ const Create = () => {
                             </div>
                         </div>
                         <CreateToggleCategory />
+                        <div className='error-message' style={!isError ? { display: "none" } : null}>Please fill all the fields!</div>
                         <input className="button submit" type="submit" value="Add Sound" />
                     </fieldset>
                 </form>

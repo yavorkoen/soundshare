@@ -36,3 +36,11 @@ export const login = async (data) => {
     }
 }
 
+export const logout = (token) => {
+    return fetch(baseUrl + '/logout', {
+        headers: {
+            'X-Authorization': token,
+        }
+    })
+};
+

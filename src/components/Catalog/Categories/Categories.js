@@ -9,12 +9,14 @@ const Categories = () => {
     console.log(categories);
 
     return (
-        <div className="categories">
-            {
-                categories.map(x => <CategoryCard key={x} category={x}/>)
-            }
-        </div>
-           
+        // <div className="categories">
+            
+                <ul className="categories">
+                    {categories.map(x => <CategoryCard key={x} category={x}/>)}
+                </ul>
+            
+        // </div>
+
     )
 }
 

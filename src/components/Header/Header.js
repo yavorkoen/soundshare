@@ -48,7 +48,8 @@ const Header = () => {
                     </li> */}
                 </ul>
             </li>
-            <li><Link to="/" onClick={onLogout}>Logout</Link></li>
+            
+            <li><Link className="button" to="/logout">Logout</Link></li>
         </ul>
     )
     return (

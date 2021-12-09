@@ -64,6 +64,7 @@ input:focus, textarea:focus {
 }
 
 .submit {
+    width: 100%;
     background-color: rgb(63, 62, 62);
     margin-top: 8px;
     padding: 14px;
@@ -82,8 +83,14 @@ textarea {
     padding: 4px;
 }
 
+#category {
+    margin-bottom: 10px;
+}
+
 #category-toggle {
+    background-color: rgb(240, 240, 240);
+    border-radius: 6px;
+    padding: 5px;
     display: block;
-    margin-right: 35%;
-    margin-top: 10px;
+    margin: auto;
 }

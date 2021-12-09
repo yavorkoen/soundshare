@@ -12,7 +12,8 @@ const CategoryList = () => {
         data.then(data => {
             setCards(Object.values(data))
             
-        });
+        })
+        .carch(err => console.log(err));
     }, []);
     
     console.log(cards);

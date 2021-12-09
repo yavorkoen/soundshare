@@ -26,7 +26,7 @@ const CreateToggleCategory = () => {
                         {categories.map(x => <option key={x} value={x}>{x}</option>)}
                     </select>
                 </div>
-                <button type="text" className="button" id="category-toggle" onClick={categoryToggleHandler}>Create new category</button>
+                <button type="text"  id="category-toggle" onClick={categoryToggleHandler}>Create new category</button>
             </div>
         </div>
     )
@@ -46,7 +46,7 @@ const CreateToggleCategory = () => {
                         <input type="text" name="categoryImage" id="categoryImage" placeholder="URL" />
                     </div>
                 </div>
-                <button type="text" className="button" id="category-toggle" onClick={categoryToggleHandler}>Select existing category</button>
+                <button type="text"  id="category-toggle" onClick={categoryToggleHandler}>Select existing category</button>
             </div>
         </div>
     )

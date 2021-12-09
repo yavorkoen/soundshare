@@ -9,6 +9,7 @@ const Edit = () => {
     const navigate = useNavigate();
     const [card, setCard] = useState({});
     const [category, setCategory] = useState({value: ''});
+    const [isError, setIsError] = useState(false);
     const { cardId } = useParams();
     const { categories } = useContext(CategoryContext);
     const { user } = useContext(AuthContext);
@@ -31,6 +32,11 @@ const Edit = () => {
         let formData = new FormData(e.currentTarget);
 
         const data = Object.fromEntries(formData);
+        if(Object.values(data).some(x => x === '')) {
+            setIsError(true);
+            return;
+        }
+
         console.log(data);
 
         const path = `/sounds/${cardId}` 
@@ -88,6 +94,7 @@ const Edit = () => {
                                 </select>
                             </div>
                         </div>
+                        <div className='error-message' style={!isError ? { display: "none" } : null}>Please fill all the fields!</div>
                         <button className="button submit" type="submit" value="Update Sound">Update Sound</button>
                     </fieldset>
                 </form>

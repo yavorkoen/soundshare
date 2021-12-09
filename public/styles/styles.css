@@ -5,6 +5,10 @@ body {
     background-color: rgb(34, 34, 33);
 }
 
+.details {
+    background-color: rgb(34, 34, 33);
+}
+
 .login-register-bcgr {
     
     /* position: absolute; */
@@ -26,7 +30,16 @@ body {
 }
 
 .error-message {
-    font-size: 13px;
+    font-size: 14px;
     text-align: center;
     color: rgb(255, 60, 0);
+}
+
+.categories {
+    display: flex; 
+    flex-wrap: wrap;
+    justify-content: space-around;
+}
+.categories li {
+    list-style-type: none;
 }
