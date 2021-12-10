@@ -7,12 +7,7 @@ body {
 
 .login-register-bcgr {
     
-    /* position: absolute; */
-    /* top: 0;
-    left: 0;
-    right: 0;
-    bottom: 0;
-    z-index: -1; */
+   
     background-image: url("../../img/Rev2_in_studio.jpg");
     background-attachment: scroll;
     background-position: center;
@@ -38,4 +33,13 @@ body {
 }
 .categories li {
     list-style-type: none;
+}
+.site-footer {
+    border-top: 1px solid rgb(223, 216, 216);
+    padding: 20px;
+    font-style: italic;
+    
+    color: white;
+    text-align: center;
+
 }

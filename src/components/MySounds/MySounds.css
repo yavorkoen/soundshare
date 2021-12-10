@@ -1,12 +1,13 @@
 
 .add-new-sound-link {
+    display: inline-block;
     text-decoration: none;
     color: white;
+    padding: 10px;
 }
 .add-new-sound {
     display: inline-block;
     margin: 30px 0 0 5px;
-    padding: 10px;
     background-color:  #070;
     border-radius: 0 20px 20px 0;
     animation: slide 1s ease-in-out;   

@@ -16,6 +16,9 @@ const Home = () => {
             <Routes>
                 <Route path="/" element={<SoundList />} />
             </Routes>
+            <footer className="site-footer">
+            <p>Share Your Sounds 2021	&copy; Yavor Koen </p>
+          </footer>
         </div>
     );
 }

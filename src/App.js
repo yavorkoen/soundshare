@@ -1,10 +1,8 @@
-import { useState } from 'react';
 import { Routes, Route } from 'react-router-dom';
 
-import { AuthContext } from './contexts/AuthContext.js'
-import { CategoryContext } from './contexts/CategoryContext.js';
+import { AuthProvider } from './contexts/AuthContext.js'
+import { CategoryProvider } from './contexts/CategoryContext.js';
 
-import useLocalStorage from './hooks/useLocalStorage.js'
 import Header from './components/Header/Header.js';
 import Home from './components/Home/Home.js';
 import Login from './components/Login/Login.js';
@@ -18,29 +16,11 @@ import Edit from './components/Edit/Edit.js';
 
 
 function App() {
-  const [user, setUser] = useLocalStorage('key', {})
-  const [categories, setCategories] = useState([
-    'Prophet rev2',
-    'Korg microkorg',
-    'Arturia'
-  ])
 
-  const onChangeCategory = (newCategory) => {
-    setCategories(oldCategories => ([...oldCategories, newCategory]))
-  }
-    
-  console.log(categories);
 
-  const login = (authData) => {
-    setUser(authData);
-  }
-  const logout = () => {
-    setUser({})
-  }
-  console.log(user);
   return (
-    <AuthContext.Provider value={{ user, logout, login }}>
-      <CategoryContext.Provider value={{categories, onChangeCategory }}>
+    <AuthProvider >
+      <CategoryProvider >
       <div id="container">
         <Header />
         <main id="site-content">
@@ -57,8 +37,8 @@ function App() {
           </Routes>
         </main>
       </div>
-      </CategoryContext.Provider>
-    </AuthContext.Provider>
+      </CategoryProvider>
+    </AuthProvider>
   );
 }
 

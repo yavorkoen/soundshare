@@ -19,7 +19,7 @@
 
 .create {
     position: absolute;
-     top: 50%;
+    top: 50%;
     left: 50%;
     transform: translateX(-50%) translateY(-50%);
     margin: auto;
@@ -91,6 +91,7 @@ textarea {
 #category-toggle {
     
     background-color: rgb(240, 240, 240);
+    /* color: black; */
     border-radius: 6px;
     padding: 5px;
     display: block;
