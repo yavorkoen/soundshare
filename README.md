@@ -1,6 +1,6 @@
-# Getting Started with Create React App
+# Soundshare A website for sharing synthesizer sounds
 
-This project was bootstrapped with [Create React App](https://github.com/facebook/create-react-app).
+Exam project for SoftUni React course
 
 ## Available Scripts
 
