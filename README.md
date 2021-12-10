@@ -1,4 +1,4 @@
-# Soundshare A website for sharing synthesizer sounds
+# Soundshare. A website for sharing synthesizer sounds.
 
 Exam project for SoftUni React course
 
