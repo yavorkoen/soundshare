@@ -77,7 +77,7 @@ const Edit = () => {
                         <div className="field">
                             <label htmlFor="description">Description</label>
                             <div className="input">
-                                <textarea name="description" id="description" rows="6" cols="60" defaultValue={card.description} maxLength="200"></textarea>
+                                <textarea name="description" id="description" rows="6" cols="60" maxLength="200" defaultValue={card.description} maxLength="200"></textarea>
                             </div>
                         </div>
                         <div className="field">
@@ -98,6 +98,7 @@ const Edit = () => {
                         <button className="button submit" type="submit" value="Update Sound">Update Sound</button>
                     </fieldset>
                 </form>
+                <button className="cancel-button" onClick={() => navigate('/my-sounds')}>Cancel</button>
             </section>
         </div>
     );

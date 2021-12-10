@@ -24,11 +24,14 @@ const Register = () => {
         } else {
             setIsError('');
         }
-        if (password === '' || password !== repass) {
+        if (password.length < 6) {
+            setIsError('Password should have at least 6 characters');
+            return;
+        }else if (password === '' || password !== repass) {
             setIsError('Password doesn\'t match');
             return;
         } else {
-            setIsError(true);
+            setIsError('');
         }
 
         let data = {

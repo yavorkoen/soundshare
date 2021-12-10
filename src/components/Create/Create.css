@@ -34,6 +34,7 @@
 
 form {
     outline: none;
+    margin-bottom: 10px;
     
 }
 fieldset {
@@ -94,4 +95,10 @@ textarea {
     padding: 5px;
     display: block;
     margin: auto;
+}
+.cancel-button {
+    background-color: rgb(240, 240, 240);
+    border-radius: 6px;
+    padding: 5px;
+    float: right;
 }

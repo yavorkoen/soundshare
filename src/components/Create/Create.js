@@ -77,6 +77,7 @@ const Create = () => {
                         <input className="button submit" type="submit" value="Add Sound" />
                     </fieldset>
                 </form>
+                <button className="cancel-button" onClick={() => navigate('/my-sounds')}>Cancel</button>
             </section>
         </div>
     );
