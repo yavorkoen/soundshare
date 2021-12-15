@@ -21,7 +21,7 @@ const SoundList = () => {
     console.log(cards);
     return (
         category 
-        ? cards.length > 0
+        ? cards.filter(x => x.category === category).length > 0
 
         ? (
             <ul className="sound-list">

@@ -20,8 +20,10 @@ const Create = () => {
 
         let category = formData.get("category");
         let categoryImage = formData.get("categoryImage");
-        console.log(category);
-
+        let soundUrl = formData.get('soundUrl');
+        let embedId = soundUrl.split('/')
+        formData.set('soundUrl', embedId[embedId.length-1])
+        
         if (!categories.includes(category)) {
             onChangeCategory(category)
             cardImages[category] = categoryImage;
@@ -69,7 +71,7 @@ const Create = () => {
                         <div className="field">
                             <label htmlFor="soundUrl">Embed Your Youtube Video</label>
                             <div className="input">
-                                <input type="text" name="soundUrl" id="soundUrl" placeholder="URL" />
+                                <input type="text" name="soundUrl" id="soundUrl" placeholder="From your Youtube video select 'Share' and copy the link here" />
                             </div>
                         </div>
                         <CreateToggleCategory />
