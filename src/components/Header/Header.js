@@ -39,17 +39,10 @@ const Header = () => {
                 <Link to="catalog">Catalogue</Link>
                 <ul>
                     <li><Link to="/catalog/categories">Show by categories</Link></li>
-                    {/* <li><a href="#">Categories</a>
-                        <ul>
-                            <li><a href="#">Prophet rev2</a></li>
-                            <li><a href="#">Korg microkorg</a></li>
-                            <li><a href="#">Arturia</a></li>
-                        </ul>
-                    </li> */}
                 </ul>
             </li>
             
-            <li><Link className="button" to="/logout">Logout</Link></li>
+            <li><Link to="/logout">Logout</Link></li>
         </ul>
     )
     return (

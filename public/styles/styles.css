@@ -43,6 +43,17 @@ body {
     text-align: center;
 
 }
+.button {
+    display: inline-block;
+    text-decoration: none;
+    border: none;
+    background-color: rgb(0, 153, 0);
+    color: white;
+    border-radius: 3px;
+    padding: 0.5rem 1rem;
+    margin-bottom: 10px;
+    margin-top: 10px;
+}
 .button:hover {
     background-color: rgb(3, 193, 3);
 }

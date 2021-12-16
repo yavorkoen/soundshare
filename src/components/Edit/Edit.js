@@ -37,24 +37,19 @@ const Edit = () => {
             return;
         }
 
-        console.log(data);
-
         const path = `/sounds/${cardId}` 
         crudService.update( path, user.accessToken, data)
             .then(res => {
-                console.log(res);
                 navigate('/my-sounds');
             })
             .catch(err => console.log(err));
     }
-
-   
     const handleCategoryChange = (e) => {
         setCategory({value: e.target.value})
         console.log(category);
         
     }
-    console.log();
+
     return (
         <div className="create-container">
             <div className="create-bcgr"></div>
@@ -102,8 +97,6 @@ const Edit = () => {
             </section>
         </div>
     );
-
 }
-
 
 export default Edit;

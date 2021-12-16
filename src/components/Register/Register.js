@@ -62,7 +62,8 @@ const Register = () => {
                         <legend>Register</legend>
                         <div className="field">
                             <div className="input">
-                                <input type="text" name="email" id="email" placeholder="Email" />                              {/* <div className={isValidEmail ? "valid-email" : "invalid-email"}>Please enter a valid email address</div> */}
+                                <input type="text" name="email" id="email" placeholder="Email" />                              
+                            {/* <div className={isValidEmail ? "valid-email" : "invalid-email"}>Please enter a valid email address</div> */}
                             </div>
                         </div>
                         <div className="field">

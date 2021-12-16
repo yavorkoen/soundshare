@@ -4,7 +4,9 @@ import { AuthContext } from '../../contexts/AuthContext.js';
 import * as crudService from '../../services/crudService.js';
 import './Details.css'
 import YoutubeEmbed from '../YoutubeEmbed/YoutubeEmbed.js';
-import Card from '../SoundList/Cards/Card.js';
+import ConfirmDialog from '../Common/ConfirmDialog/ConfirmDialog.js';
+
+// import Card from '../SoundList/Cards/Card.js';
 // import cardImages from '../../img/cardImages.js';
 
 const Details = () => {
@@ -14,6 +16,7 @@ const Details = () => {
     const [likes, setLikes] = useState(0);
     const [likeId, setLikeId] = useState('');
     const [isLiked, setIsLiked] = useState(false);
+    const [showConfirmDialog, setShowConfirmDialog] = useState(false);
     const { cardId } = useParams();
 
     const path = `/sounds/${cardId}`;
@@ -29,25 +32,20 @@ const Details = () => {
         return () => setCard({})
     }, [path])
 
-    // const [isLiked, likes, onLikeHandler] = useLikes(cardId, user);
-    // console.log(cardId);
     useEffect(() => {
         crudService.get(searchLikesByOwner)
             .then(res => {
-                // console.log(res);
                 let myLike = res.find(x => x.cardId === cardId)
                 console.log(myLike);
                 if (myLike !== undefined) {
                     setLikeId(myLike._id);
                     setIsLiked(true);
                 }
-                // console.log(likes);
             })
             .catch(err => console.log(err));
 
         return () => {
             setIsLiked(false);
-            // console.log(isLiked);
         }
 
     }, [setIsLiked, likes, searchLikesByOwner, cardId]);
@@ -55,7 +53,6 @@ const Details = () => {
     useEffect(() => {
         crudService.get(searchLikesByCardId)
             .then(res => {
-                // console.log(res);
                 setLikes(res.length);
             }, []);
     })
@@ -65,6 +62,10 @@ const Details = () => {
             .then(() => {
                 navigate('/my-sounds');
             })
+    }
+
+    const deleteClickHandler = () => {
+        setShowConfirmDialog(true);
     }
 
     const onLikeHandler = () => {
@@ -91,7 +92,7 @@ const Details = () => {
         <div className="controls-container">
             <ul className="controls">
                 <li><Link className="button edit" to={'/edit/' + cardId}>Edit</Link></li>
-                <li><button className="button-delete" href="#" onClick={deleteHandler}>Delete</button></li>
+                <li><button className="button-delete" href="#" onClick={deleteClickHandler}>Delete</button></li>
             </ul>
         </div>
     );
@@ -104,26 +105,29 @@ const Details = () => {
     )
 
     return (
-        <div className="details">
-            <section className="card-details">
-                <h4 className="title">{card.title}</h4>
-                <div className="content">
-                    <p><span>Author: </span>{card.authorName}</p>
-                    <p><span>Category: </span> {card.category}</p>
-                    <h3 className="heading">{card.creator}</h3>
-                    <p className="card-description">{card.description}</p>
-                    {/* <iframe width="560" height="315" src="https://www.youtube.com/embed/66vSm53-0b8" title="YouTube video player" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" ></iframe> */}
-                    <YoutubeEmbed embedId = {card.soundUrl} />
-                </div>
-                {
-                    user._id && (user._id === card._ownerId
-                        ? ownerView
-                        : userView
-                    )
-                }
-            </section>
-            <button className='back-button' onClick={() => navigate(-1)}>BACK</button>
-        </div>
+        <>
+            <ConfirmDialog show={showConfirmDialog} onClose={() => setShowConfirmDialog(false)} onSave={deleteHandler} />
+            <div className="details">
+                <section className="card-details">
+                    <h4 className="title">{card.title}</h4>
+                    <div className="content">
+                        <p><span>Author: </span>{card.authorName}</p>
+                        <p><span>Category: </span> {card.category}</p>
+                        <h3 className="heading">{card.creator}</h3>
+                        <p className="card-description">{card.description}</p>
+                        {/* <iframe width="560" height="315" src="https://www.youtube.com/embed/66vSm53-0b8" title="YouTube video player" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" ></iframe> */}
+                        <YoutubeEmbed embedId={card.soundUrl} />
+                    </div>
+                    {
+                        user._id && (user._id === card._ownerId
+                            ? ownerView
+                            : userView
+                        )
+                    }
+                </section>
+                <button className='button' onClick={() => navigate(-1)}>BACK</button>
+            </div>
+        </>
     )
 }
 
