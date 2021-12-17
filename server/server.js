@@ -1365,29 +1365,29 @@
         sounds: {
             "ff436770-76c5-40e2-b231-77409eda7a61": {
                 "_ownerId": "35c62d76-8152-4626-8712-eeb96381bea8",
-                "title": "Sync Lead",
+                "title": "Funky Split",
                 "category": "Prophet rev2",
                 "authorName": "Peter",
-                "soundUrl": "",
-                "description": "A classic sync lead with lots of modulation, perfect for soloing.",
+                "soundUrl": "PPEFtlly7Jc",
+                "description": "Funky bass and pad split. On left hand you have mellow unison bass with lots of low end. On your right hand there's the saw stab with some chorus and fast pitch modulation",
                 "_createdOn": 1617194128618,
             },
             "1840a313-225c-416a-817a-9954d4609f7c": {
                 "_ownerId": "35c62d76-8152-4626-8712-eeb96381bea8",
-                "title": "Sweep Pad",
+                "title": "Rising Pad",
                 "category": "Prophet rev2",
                 "authorName": "Peter",
-                "soundUrl": "",
-                "description": "Sweep pad with a slow motion of the filter cutoff",
+                "soundUrl": "vY_DoCwaVsY",
+                "description": "Mellow pad with slow motion of the filter cutoff. Lush sound ideal for sustained chords",
                 "_createdOn": 1617194210928,
             },
             "126777f5-3277-42ad-b874-76d043b069cb": {
                 "_ownerId": "847ec027-f659-4086-8032-5173e2f9c93a",
-                "title": "Synth Bass",
+                "title": "Synth Lead",
                 "category": "Korg microkorg",
                 "authorName": "John",
-                "soundUrl": "",
-                "description": "Funky bass with tons of low end",
+                "soundUrl": "8zVt1OnZVwM",
+                "description": "Funky lead with some resonance motion, and pitch modulation. Play an octave below and you got a nice bass sound.",
                 "_createdOn": 1617194295474,
             }
 

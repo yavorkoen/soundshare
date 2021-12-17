@@ -6,9 +6,6 @@ import './Details.css'
 import YoutubeEmbed from '../YoutubeEmbed/YoutubeEmbed.js';
 import ConfirmDialog from '../Common/ConfirmDialog/ConfirmDialog.js';
 
-// import Card from '../SoundList/Cards/Card.js';
-// import cardImages from '../../img/cardImages.js';
-
 const Details = () => {
     const navigate = useNavigate();
     const { user } = useContext(AuthContext);
@@ -36,8 +33,7 @@ const Details = () => {
         crudService.get(searchLikesByOwner)
             .then(res => {
                 let myLike = res.find(x => x.cardId === cardId)
-                console.log(myLike);
-                if (myLike !== undefined) {
+                if (myLike) {
                     setLikeId(myLike._id);
                     setIsLiked(true);
                 }
@@ -81,17 +77,14 @@ const Details = () => {
             .then(res => {
                 console.log(res)
                 setLikeId(res._id);
-                // setIsLiked(true);
                 setLikes(likes => likes + 1);
             });
     }
 
-    console.log(isLiked);
-
     const ownerView = (
         <div className="controls-container">
             <ul className="controls">
-                <li><Link className="button edit" to={'/edit/' + cardId}>Edit</Link></li>
+                <li><Link className="button edit" to={"/edit/" + cardId}>Edit</Link></li>
                 <li><button className="button-delete" href="#" onClick={deleteClickHandler}>Delete</button></li>
             </ul>
         </div>
@@ -115,7 +108,6 @@ const Details = () => {
                         <p><span>Category: </span> {card.category}</p>
                         <h3 className="heading">{card.creator}</h3>
                         <p className="card-description">{card.description}</p>
-                        {/* <iframe width="560" height="315" src="https://www.youtube.com/embed/66vSm53-0b8" title="YouTube video player" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" ></iframe> */}
                         <YoutubeEmbed embedId={card.soundUrl} />
                     </div>
                     {
@@ -124,8 +116,13 @@ const Details = () => {
                             : userView
                         )
                     }
+                    {
+                        !user._id
+                            ? <p className="login-prompt">To view more details or create a sound please <Link to="/login">Login</Link></p>
+                            : null
+                    }
                 </section>
-                <button className='button' onClick={() => navigate(-1)}>BACK</button>
+                <button className="button" onClick={() => navigate(-1)}>BACK</button>
             </div>
         </>
     )

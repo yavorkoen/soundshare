@@ -31,12 +31,16 @@ const Edit = () => {
 
         let formData = new FormData(e.currentTarget);
 
+        let soundUrl = formData.get('soundUrl');
+        let embedId = soundUrl.split('/')
+        formData.set('soundUrl', embedId[embedId.length-1]);
+
         const data = Object.fromEntries(formData);
         if(Object.values(data).some(x => x === '')) {
             setIsError(true);
             return;
         }
-
+        
         const path = `/sounds/${cardId}` 
         crudService.update( path, user.accessToken, data)
             .then(res => {

@@ -76,6 +76,17 @@ input {
     color: white;
     font-weight: bold;
 }
+.register-prompt {
+    display: block;
+    text-decoration: none;
+    color:rgb(63, 62, 62);
+    padding-top: 6px;
+    font-size: 0.9em;
+    text-align: center;
+}
+.register-prompt:hover {
+    text-decoration: underline;
+}
 
 
 

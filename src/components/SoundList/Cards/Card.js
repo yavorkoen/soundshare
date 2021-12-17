@@ -19,7 +19,7 @@ const Card = ({ card }) => {
             })
             .catch(err => console.log(err));
 
-    }, [])
+    }, [searchLikesByCardId])
 
 
     return (

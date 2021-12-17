@@ -40,7 +40,7 @@ const Register = () => {
         }
         authService.register(data)
             .then(res => {
-                console.log(res)
+                console.log(res);
                 login(res);
                 navigate('/');
 
@@ -52,7 +52,6 @@ const Register = () => {
 
     }
 
-
     return (
         <div className="register-container">
             <div className="login-register-bcgr"></div>
@@ -63,7 +62,6 @@ const Register = () => {
                         <div className="field">
                             <div className="input">
                                 <input type="text" name="email" id="email" placeholder="Email" />                              
-                            {/* <div className={isValidEmail ? "valid-email" : "invalid-email"}>Please enter a valid email address</div> */}
                             </div>
                         </div>
                         <div className="field">

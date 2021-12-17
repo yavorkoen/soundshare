@@ -17,7 +17,6 @@ import Edit from './components/Edit/Edit.js';
 
 function App() {
 
-
   return (
     <AuthProvider >
       <CategoryProvider >

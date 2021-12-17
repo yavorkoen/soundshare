@@ -22,7 +22,7 @@ const Create = () => {
         let categoryImage = formData.get("categoryImage");
         let soundUrl = formData.get('soundUrl');
         let embedId = soundUrl.split('/')
-        formData.set('soundUrl', embedId[embedId.length-1])
+        formData.set('soundUrl', embedId[embedId.length-1]);
         
         if (!categories.includes(category)) {
             onChangeCategory(category)

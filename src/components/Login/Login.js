@@ -1,8 +1,8 @@
-import './Login.css';
+import { Link, useNavigate } from 'react-router-dom'
 import { useState } from 'react';
 import { useContext } from 'react';
+import './Login.css';
 import { AuthContext } from '../../contexts/AuthContext.js';
-import { useNavigate } from 'react-router';
 import * as authService from '../../services/authService.js';
 
 const Login = () => {
@@ -56,6 +56,7 @@ const Login = () => {
                         <input type="submit" className="submit" value="Sign In" />
                     </fieldset>
                 </form>
+                <Link className='register-prompt' to="/register">Create account</Link>
             </section>
         </div>
     );
